@@ -17,14 +17,19 @@ jobs:
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release --no-sound-null-safety
-      - run: |
-          ssh-keygen -t ras -C "absinthe4902@naver.com"
-          git config --global user.email absinthe4902@naver.com
-          git config --global user.name leeleelee3264
-          git remote set-url origin git@github.com:leeleelee3264/han-birthday.git
-          touch empty_file_trigger
-          git status
-          git checkout -b gh-pages
-          git add .
-          git commit -m "update"
-          git push origin gh-pages -f
+      - name: Deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_IP }}
+          username: ${{ secrets.REMOTE_SSH_ID }}
+          key: ${{ secrets.REMOTE_SSH_KEY }}
+          port: ${{ secrets.REMOTE_SSH_PORT }}
+          script: |
+            whoami
+            git pull origin master
+            touch empty_file_trigger
+            git status
+            git checkout -b gh-pages
+            git add .
+            git commit -m "update"
+            git push origin gh-pages -
