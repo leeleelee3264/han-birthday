@@ -1,4 +1,4 @@
-name: Flutter Web plz
+name: HAN
 on:
   push:
     branches:
@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build Web
     env:
-      my_secret: $
+      my_secret: ${{secrets.commit_secret}}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -18,17 +18,14 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release --no-sound-null-safety
       - run: |
+            cd ../build/web
             git config --global user.email absinthe4902@naver.com
             git config --global user.name leeleelee3264
-            git remote set-url origin https://github.com/leeleelee3264/han-birthday.git
+            git remote set-url origin https://${{secrets.commit_secret}}@github.com/leeleelee3264/han-birthday.git
             git checkout -b gh-pages
             touch empty_file_trigger
             date >> empty_file_trigger
             git status
             git add .
             git commit -m "update"
-      - name: Push
-        uses: ad-m/github-push-action@master
-        with:
-         branch: 'gh-pages'
-         github_token: ${{ secrets.GITHUB_TOKEN }}        
+            git push origin gh-pages -f
