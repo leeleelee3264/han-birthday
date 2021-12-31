@@ -18,7 +18,6 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release --no-sound-null-safety
       - run: |
-          git init
           git config --global user.email absinthe4902@naver.com
           git config --global user.name leeleelee3264
           git status
