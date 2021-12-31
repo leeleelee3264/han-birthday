@@ -51,16 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
     todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test4");
     todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test5");
     todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test6");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test7");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test8");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test9");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test10");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test11");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test12");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test13");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test14");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test15");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test16");
   }
 
   @override
