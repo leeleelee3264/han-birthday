@@ -23,6 +23,7 @@ jobs:
             git remote set-url origin https://github.com/leeleelee3264/han-birthday.git
             git checkout -b gh-pages
             touch empty_file_trigger
+            date >> empty_file_trigger
             git status
             git add .
             git commit -m "update"
