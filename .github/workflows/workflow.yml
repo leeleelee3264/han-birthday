@@ -1,56 +1,29 @@
-name: 'Deploy Flutter web app to github pages'
-description: 'Automates the build and deployment of your Flutter web app on Github gh pages'
-author: 'erickzanardo'
-
-branding:
-  color: blue
-  icon: code
-
-inputs:
-  webRenderer:
-    description: 'Which web renderer to be used, default is auto'
-    required: false
-    default: auto
-  workingDir:
-    description: 'The directory where the project is (default .)'
-    required: false
-    default: .
-  targetBranch:
-    required: false
-    default: gh-pages
-  baseHref:
-    description: 'base href (if applicable)'
-    required: false
-    default: "/"
-  customArgs:
-    description: 'Custom args like: --dart-define="simple=example"'
-    required: false
-    default:
-
-runs:
-  using: 'composite'
-  steps:
-    - run: flutter config --enable-web
-      shell: bash
-      working-directory: ${{inputs.workingDir}}
-    - run: flutter pub get
-      shell: bash
-      working-directory: ${{inputs.workingDir}}
-    - run: flutter build web --release --web-renderer=${{inputs.webRenderer}} --base-href ${{inputs.baseHref}} ${{inputs.customArgs}} --no-sound-null-safety
-      shell: bash
-      working-directory: ${{inputs.workingDir}}
-    - run: git config user.name github-actions
-      shell: bash
-      working-directory: ${{inputs.workingDir}}
-    - run: git config user.email github-actions@github.com
-      shell: bash
-      working-directory: ${{inputs.workingDir}}
-    - run: git --work-tree build/web add --all
-      shell: bash
-      working-directory: ${{inputs.workingDir}}
-    - run: git commit -m "Automatic deployment by github-actions"
-      shell: bash
-      working-directory: ${{inputs.workingDir}}
-    - run: git push origin HEAD:${{inputs.targetBranch}} --force
-      shell: bash
-      working-directory: ${{inputs.workingDir}}
+name: Flutter Web
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    name: Build Web
+    env:
+      my_secret: $
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'dev'
+      - run: flutter config --enable-web
+      - run: flutter pub get
+      - run: flutter build web --release --no-sound-null-safety
+      - run: |
+          git init
+          git config --global user.email absinthe4902@naver.com
+          git config --global user.name leeleelee3264
+          git status
+          git remote add origin https://github.com/leeleelee3264/han-birthday.git
+          git checkout -b gh-pages
+          git add --all
+          git commit --allow-empty-message -m "update"
+          git push origin gh-pages -f
