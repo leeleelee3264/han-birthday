@@ -17,6 +17,9 @@ jobs:
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release --no-sound-null-safety
+      - uses: actions/labeler@v2
+        with:
+          repo-token: ${{ secrets.COMMIT_SECRET }}
       - run: |
             git config --global user.email absinthe4902@naver.com
             git config --global user.name leeleelee3264
