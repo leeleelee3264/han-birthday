@@ -17,17 +17,17 @@ jobs:
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web --release --no-sound-null-safety
-      - uses: actions/labeler@v2
-        with:
-          repo-token: ${{ secrets.COMMIT_SECRET }}
-      - run: |
-            git config --global user.email absinthe4902@naver.com
-            git config --global user.name leeleelee3264
-            git remote set-url origin https://github.com/leeleelee3264/han-birthday.git
-            git pull origin master
-            touch empty_file_trigger
-            git status
-            git checkout -b gh-pages
-            git add .
-            git commit -m "update"
-            git push origin gh-pages -f
+#       - uses: actions/labeler@v2
+#         with:
+#           repo-token: ${{ secrets.COMMIT_SECRET }}
+#       - run: |
+#             git config --global user.email absinthe4902@naver.com
+#             git config --global user.name leeleelee3264
+#             git remote set-url origin https://github.com/leeleelee3264/han-birthday.git
+#             git pull origin master
+#             touch empty_file_trigger
+#             git status
+#             git checkout -b gh-pages
+#             git add .
+#             git commit -m "update"
+#             git push origin gh-pages -f
