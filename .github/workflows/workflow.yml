@@ -18,8 +18,9 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release --no-sound-null-safety
       - run: |
-          git config --local user.email absinthe4902@naver.com
-          git config --local user.name leeleelee3264
+          git config --global user.email absinthe4902@naver.com
+          git config --global user.name leeleelee3264
+          git remote add origin https://github.com/leeleelee3264/han-birthday.git
           git checkout -b gh-pages
           git add --all
           git commit --allow-empty -m "update"
