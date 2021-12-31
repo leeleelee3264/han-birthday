@@ -22,7 +22,6 @@ jobs:
           git config --global user.email absinthe4902@naver.com
           git config --global user.name leeleelee3264
           git status
-          git remote add origin https://github.com/leeleelee3264/han-birthday.git
           git checkout -b gh-pages
           git add --all
           git commit --allow-empty-message -m "update"
