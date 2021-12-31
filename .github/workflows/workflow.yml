@@ -22,5 +22,5 @@ jobs:
           git config -- user.name leeleelee3264
           git checkout -b gh-pages
           git add --all
-          git commit -m "update"
+          git commit --allow-empty -m "update"
           git push origin gh-pages -f
