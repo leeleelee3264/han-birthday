@@ -20,6 +20,7 @@ jobs:
       - run: |
           git config --global user.email absinthe4902@naver.com
           git config --global user.name leeleelee3264
+          git remote set-url git@github.com:leeleelee3264/han-birthday.git
           touch empty_file_trigger
           git status
           git checkout -b gh-pages
