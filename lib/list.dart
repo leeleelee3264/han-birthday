@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
+import 'package:han_birthday/main.dart';
 import 'package:pimp_my_button/pimp_my_button.dart';
 
 
@@ -95,6 +96,13 @@ class _MyHomePageState extends State<MyHomePage> {
                             controller.forward(from: 0.0);
                             setState(() {
                               todos.removeAt(index);
+
+                              if(todos.length == 0) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => MyApp()),
+                                );
+                              }
                             });
                           },
                         );
