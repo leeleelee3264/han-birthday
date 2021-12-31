@@ -11,7 +11,7 @@ class MyApp2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Prj.HAN',
       theme: ThemeData(
         brightness: Brightness.light,
         /* light theme settings */
@@ -45,12 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test1");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test2");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test3");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test4");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test5");
-    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!! test6");
+    todos.add("한지연 배우님의 생일을 진심으로 축하드립니다!!");
+    todos.add("배우님이 무대 위에서 보여주시는 멋진 모습에");
+    todos.add("항상 많이많이 배우고 있습니다!");
+    todos.add("늘 건강하시고 맛있는 것도 많이많이 드시길 바랍니다.");
+    todos.add("다음에 또 무대에서 뵙는 그 날까지");
+    todos.add("행복하세용!! 감사합니다!!");
   }
 
   @override

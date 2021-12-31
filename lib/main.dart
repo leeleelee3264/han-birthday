@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Prf.HAN',
       theme: ThemeData(
         brightness: Brightness.light,
         /* light theme settings */
@@ -33,15 +33,13 @@ class MyApp extends StatelessWidget {
 class TypeWriterBox extends StatefulWidget {
   static final boxDecoration = BoxDecoration(
       color: Colors.orange[400],
-      borderRadius: BorderRadius.all
-        (Radius.circular(10)),
+      borderRadius: BorderRadius.all(Radius.circular(10)),
       boxShadow: [
         BoxShadow(
             color: Colors.black.withAlpha(50),
             blurRadius: 15,
             offset: Offset(0, 8),
-            spreadRadius: 5
-        )
+            spreadRadius: 5)
       ]);
 
   const TypeWriterBox({Key? key}) : super(key: key);
@@ -54,37 +52,46 @@ class _TypeWriterBoxState extends State<TypeWriterBox> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: PlayAnimation<double>(
-          duration: 400.milliseconds,
-          tween: 0.0.tweenTo(80.0),
-          builder: (context, child, height) {
-            return PlayAnimation<double>(
-              duration: 1600.milliseconds,
-              delay: 500.milliseconds,
-              tween: 2.0.tweenTo(300.0),
-              builder: (context, child, width) {
-                return GestureDetector(
-                  onTap: (){
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyApp2()),
-                    );
-                  },
-                  child: Container(
-                    decoration: TypeWriterBox.boxDecoration,
-                    width: width,
-                    height: height,
-                    child: typewriter(width)
-                        ? TypeWriterText("Happy Birthday Prj.")
-                        : Container(),
-                  ),
-                );
-
-              },
-            );
-          },
-        ),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              PlayAnimation<double>(
+                duration: 400.milliseconds,
+                tween: 0.0.tweenTo(80.0),
+                builder: (context, child, height) {
+                  return PlayAnimation<double>(
+                    duration: 1600.milliseconds,
+                    delay: 500.milliseconds,
+                    tween: 2.0.tweenTo(300.0),
+                    builder: (context, child, width) {
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyApp2()),
+                          );
+                        },
+                        child: Container(
+                          decoration: TypeWriterBox.boxDecoration,
+                          width: width,
+                          height: height,
+                          child: typewriter(width)
+                              ? TypeWriterText("Happy Birthday Prj")
+                              : Container(),
+                        ),
+                      );
+                    },
+                  );
+                },
+              ),
+              Container(
+                  margin: EdgeInsets.all(10),
+                  child: Text("click to start"),
+              ),
+            ]),
       ),
     );
   }
