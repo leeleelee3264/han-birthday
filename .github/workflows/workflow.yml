@@ -16,7 +16,7 @@ jobs:
           channel: 'dev'
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: flutter build web --release
+      - run: flutter build web --release --no-sound-null-safety
       - run: |
           git init
           git config --global user.email absinthe4902@naver.com
