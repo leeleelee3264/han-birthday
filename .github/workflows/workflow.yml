@@ -1,27 +1,14 @@
-name: Flutter Web
+name: Gh-Pages
+
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
+
 jobs:
   build:
-    name: Build Web
-    env:
-      my_secret: $
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v1
-        with:
-          channel: 'dev'
-      - run: flutter config --enable-web
-      - run: flutter pub get
-      - run: flutter build web --release --no-sound-null-safety
-      - run: |
-          git config --global user.email absinthe4902@naver.com
-          git config --global user.name leeleelee3264
-          git remote add origin https://github.com/leeleelee3264/han-birthday.git
-          git checkout -b gh-pages
-          git add --all
-          git commit --allow-empty -m "update"
-          git push origin gh-pages -f
+      - uses: erickzanardo/flutter-gh-pages@v3
