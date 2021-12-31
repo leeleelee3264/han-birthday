@@ -20,8 +20,6 @@ jobs:
       - run: |
           git config --local user.email absinthe4902@naver.com
           git config -- user.name leeleelee3264
-          git add . 
-          git commit -m "AUTO commit from workflow"
           git checkout -b gh-pages
           git add --all
           git commit -m "update"
