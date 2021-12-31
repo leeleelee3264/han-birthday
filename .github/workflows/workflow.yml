@@ -19,7 +19,7 @@ jobs:
       - run: flutter build web --release --no-sound-null-safety
       - run: |
           git config --local user.email absinthe4902@naver.com
-          git config -- user.name leeleelee3264
+          git config --local user.name leeleelee3264
           git checkout -b gh-pages
           git add --all
           git commit --allow-empty -m "update"
