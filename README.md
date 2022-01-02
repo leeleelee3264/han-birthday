@@ -2,14 +2,16 @@
 
 # Very simple birthday page with Flutter and github page
 
-> Able to see live demo here [[Live Demo]]([https://leeleelee3264.github.io/han-birthday/build/web/#/](https://leeleelee3264.github.io/han-birthday/build/web/#/))
-> 
+Able to see live demo here [[Live Demo]]([https://leeleelee3264.github.io/han-birthday/build/web/#/](https://leeleelee3264.github.io/han-birthday/build/web/#/))
+ 
 
 Made a very simple birthday celebration page with Flutter and github page. Main goals were down below. 
 
 - Use Flutter
 - Use many animation as possible
 - Deploy to github page.
+
+<br>
 
 Main Opening animation
 
@@ -104,7 +106,7 @@ Github Action part
       - run: flutter build web --release --no-sound-null-safety
       - run: |
             cd ./build/web
-						# git action command down below 
+      # git action command down below 
 ```
 
 - I used https://github.com/subosito/flutter-action action to build flutter.
@@ -122,12 +124,12 @@ In my case, [https://leeleelee3264.github.io/han-birthday/build/web](https://lee
 
 ![스크린샷 2022-01-02 오전 11.41.01.png](./example/access_token.png)
 
-1. Go to project repository > settings > secrets 
-2. Add Repository with Generated token in step 2. (in this example, secret name is COMMIT_SECRET) 
+3. Go to project repository > settings > secrets 
+4. Add Repository with Generated token in step 2. (in this example, secret name is COMMIT_SECRET) 
 
 ![스크린샷 2022-01-02 오전 11.42.33.png](./example/secret.png)
 
-1. Now we can use the issued token like this. 
+5. Now we can use the issued token like this. 
 
 ```bash
 git remote set-url origin https://${{secrets.commit_secret}}@github.com/leeleelee3264/han-birthday.git
