@@ -2,7 +2,7 @@
 
 # Very simple birthday page with Flutter and github page
 
-Able to see live demo here https://leeleelee3264.github.io/han-birthday/build/web/#/](https://leeleelee3264.github.io/han-birthday/build/web/#/
+Able to see live demo here [birthday page](https://leeleelee3264.github.io/han-birthday/build/web/#/)
  
 
 Made a very simple birthday celebration page with Flutter and github page. Main goals were down below. 
