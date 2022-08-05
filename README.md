@@ -86,9 +86,15 @@ Do this basic setting in local and push before making github action
 flutter channel master
 flutter upgrade
 flutter config --enable-web
+flutter create . (<- . 점 현재 디렉토리 까지 선택)
 
 # to check running page 
+flutter devices
 flutter run -d chrome 
+
+# final step, build flutter app for web 
+flutter build web
+
 ```
 <br>
 
